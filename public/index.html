@@ -1,11 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <!--<!DOCTYPE html>-->
+    <html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <head>
+        <title>Data Collector</title>
+    </head>
+
+    <body>
+        <div class="row">
+            <a href="#" id="info"><span class="glyphicon glyphicon-info-sign"></span></a>
+            <h1><span class="glyphicon glyphicon-qrcode"></span>Data Collector</h1>
+        </div>
+        <div class="row">
+            <h2 id="itemCount">Number of items: 0</h2>
+        </div>
+        <div class="row" id="controls">
+            <input class="form-control input-sm" type="text" id="dataField" placeholder="" />
+            <input class="btn btn-default btn-lg" type="button" id="submit" value="Submit" />
+            <input class="btn btn-default btn-lg" type="button" id="download" value="Download Data" />
+            <input class="btn btn-default btn-lg" type="button" id="deleteLast" value="Delete Last" />
+            <input class="btn btn-default btn-lg" type="button" id="clear" value="Clear" />
+
+        </div>
+        <div id="table-wrapper" class="table-responsive">
+            <table id="dataTable" class="table table-striped table-hover table-condensed">
+                <thead>
+                    <tr>
+                        <th>Qty</th>
+                        <th>Data</th>
+                        <th>Timestamp</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="modal" class="modal">
+            <div class="modalContent">
+                <span id="modalClose" class="close">&times;</span>
+                <h3 id="modalHead">Alert</h3>
+                <p id="modalMessage">You should recieve alerts here.</p>
+                <button class="btn btn-default btn-lg" id="modalConfirm">Confirm</button>
+                <button class="btn btn-default btn-lg" id="modalDeny">Deny</button>
+            </div>
+        </div>
+
+    </body>
+
+    </html>
 </body>
+
 </html>
