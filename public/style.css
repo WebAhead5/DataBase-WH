@@ -16,7 +16,6 @@ body {
     background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/asanoha-400px.png");
 }
 
-
 /* --- MODAL --- */
 
 .modal {
@@ -49,26 +48,21 @@ body {
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close:hover, .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
 }
 
-
 /* --- MODAL END --- */
-
 
 /* --- BOOTSRAP TABLE TWEAKS --- */
 
-.table-striped>tbody>tr:nth-child(even)>td,
-.table-striped>tbody>tr:nth-child(even)>th {
+.table-striped>tbody>tr:nth-child(even)>td, .table-striped>tbody>tr:nth-child(even)>th {
     background-color: #dbedff;
 }
 
-.table-hover tbody tr:hover td,
-.table-hover tbody tr:hover th {
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
     font-weight: bold;
 }
 
@@ -76,9 +70,7 @@ body {
     font-family: monospace;
 }
 
-
 /* --- TABLE TWEAKS END --- */
-
 
 /* --- BUTTON TWEAKS --- */
 
@@ -86,25 +78,20 @@ body {
     background-color: white;
 }
 
-#controls .btn:focus,
-#modal .btn:focus {
+#controls .btn:focus, #modal .btn:focus {
     outline: 0;
 }
 
-#controls .btn:hover,
-#modal .btn:hover {
+#controls .btn:hover, #modal .btn:hover {
     border-color: #5E9ED6;
     background-color: white;
 }
 
-#controls #clear:hover,
-#controls #deleteLast:hover {
+#controls #clear:hover, #controls #delete:hover {
     border-color: red;
 }
 
-
 /* --- BUTTON TWEAKS END --- */
-
 
 /* --- --- */
 
@@ -148,11 +135,11 @@ h1 span {
     display: none;
 }
 
-#download {}
 
-#clear,
-#deleteLast {
-    float: right;
+#clear {
+
+float:right;
+margin-right: 10px;
 }
 
 #table-wrapper {
@@ -165,7 +152,6 @@ tbody .glyphicon {
     padding: 0 8px 0 8px;
     font-size: 28px;
 }
-
 
 /* --- TABLET SIZED DEVICES AND LARGER --- */
 
@@ -188,10 +174,7 @@ tbody .glyphicon {
         width: 33%;
         height: 40px;
     }
-    #controls #submit,
-    #controls #download,
-    #controls #clear,
-    #controls #deleteLast {
+    #controls #submit, #controls #download, #controls #clear, #controls #deleteLast {
         height: 40px;
     }
     thead {

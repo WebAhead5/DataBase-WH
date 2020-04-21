@@ -1,5 +1,8 @@
 var fs = require('fs')
 const path = require('path');
+const qs = require('querystring');
+
+const getitems = require('./queries/getData');
 
 var extensionTypesObj = {
     html: 'text/html',
@@ -22,8 +25,8 @@ const indexHandler = function (request, response) {
 }
 
 const publicHandler = (request, response) => {
-    const url = request.url; // /public/dictionary.txt
-    const extension = url.split('.')[1]; // txt
+    const url = request.url; 
+    const extension = url.split('.')[1]; 
     const filePath = path.join(__dirname, "..", url);
     fs.readFile(filePath, (error, file) => {
         if (error) {
@@ -36,7 +39,24 @@ const publicHandler = (request, response) => {
     })
 }
 
+
+const getItemsHandler = response => {
+
+    getitems((err, res) => {
+      if (err) {
+        console.log(err)
+        response.end('Sorry error found');
+      }
+      response.writeHead(200, { 'Content-Type': 'application/json' });
+      response.end(res)
+  
+    })
+  
+  
+  };
+
 module.exports = {
     indexHandler: indexHandler,
     publicHandler: publicHandler,
+    getItemsHandler:getItemsHandler
 }

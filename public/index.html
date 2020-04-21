@@ -7,53 +7,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="/public/app.js"></script>
     <link rel="stylesheet" href="/public/style.css">
+<<<<<<< HEAD
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="/public/pen.js"></script>
     <title>Document</title>
+=======
+    <title>Exciting Shopping </title>
+>>>>>>> fa8e1809ba023cffd63d11b15c2255acf9f708a4
 </head>
 
 <body>
-    <!--<!DOCTYPE html>-->
-    <html>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="row">
+        <a href="#" id="info"><span class="glyphicon glyphicon-info-sign"></span></a>
+        <h1>Shopping Collector</h1>
+    </div>
+    <div class="row">
+        <h2 id="itemCount">Number of items: 0</h2>
+    </div>
+    <div class="row" id="controls">
+        <input class="form-control input-sm" type="text" id="dataField" placeholder="" />
+        <!-- <input class="btn" type="button" id="submit" value="Submit" /> -->
+        <input class="btn" type="button" id="inset" value="Insert Item" />
+        <input class="btn" type="button" id="delete" value="Delete Item" />
+        <input class="btn" type="button" id="clear" value="Clear" />
 
-    <head>
-        <title>Data Collector</title>
-    </head>
+    </div>
+    <div id="table-wrapper" class="table-responsive">
+        <table id="dataTable" class="table table-striped table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
 
-    <body>
-        <div class="row">
-            <a href="#" id="info"><span class="glyphicon glyphicon-info-sign"></span></a>
-            <h1><span class="glyphicon glyphicon-qrcode"></span>Data Collector</h1>
-        </div>
-        <div class="row">
-            <h2 id="itemCount">Number of items: 0</h2>
-        </div>
-        <div class="row" id="controls">
-            <input class="form-control input-sm" type="text" id="dataField" placeholder="" />
-            <input class="btn btn-default btn-lg" type="button" id="submit" value="Submit" />
-            <input class="btn btn-default btn-lg" type="button" id="download" value="Download Data" />
-            <input class="btn btn-default btn-lg" type="button" id="deleteLast" value="Delete Last" />
-            <input class="btn btn-default btn-lg" type="button" id="clear" value="Clear" />
-
-        </div>
-        <div id="table-wrapper" class="table-responsive">
-            <table id="dataTable" class="table table-striped table-hover table-condensed">
-                <thead>
-                    <tr>
-                        <th>Qty</th>
-                        <th>Data</th>
-                        <th>Timestamp</th>
-                        <th>Options</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-
-        <div id="modal" class="modal">
+    <!-- <div id="modal" class="modal">
             <div class="modalContent">
                 <span id="modalClose" class="close">&times;</span>
                 <h3 id="modalHead">Alert</h3>
@@ -61,11 +57,8 @@
                 <button class="btn btn-default btn-lg" id="modalConfirm">Confirm</button>
                 <button class="btn btn-default btn-lg" id="modalDeny">Deny</button>
             </div>
-        </div>
+        </div> -->
 
-    </body>
-
-    </html>
 </body>
 
 </html>
