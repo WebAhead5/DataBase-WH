@@ -1,6 +1,5 @@
 var handlers = require('./handlers.js');
-var giphyHandler = require('./giphyhandler');
-var oxfordHandler = require('./oxford');
+
 
 function router(request, response) {
     if (request.url === '/') {
