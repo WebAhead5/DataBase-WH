@@ -1,172 +1,186 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    /*
+	Japanese Asanoha
+	APRIL 3, 2016
+
+	The Asanoha pattern is one of the most popular traditional 			patterns, often seen on Japanese kimono.
+
+	Made by Olga Libby
+	*/
+    background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/asanoha-400px.png");
+}
+
+/* --- MODAL --- */
+
 .modal {
-	display: none;
-	position: fixed;
-	z-index: 1;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-	background-color: rgb(0, 0, 0);
-	background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modalContent {
-	position: relative;
-	margin: 10% auto 0 auto;
-	background-color: white;
-	padding: 20px;
-	border: 1px solid gray;
-	width: 80%;
-	font-size: 18px;
+    position: relative;
+    margin: 10% auto 0 auto;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid gray;
+    width: 80%;
+    font-size: 18px;
 }
 
 .close {
-	color: #aaa;
-	float: right;
-	font-size: 28px;
-	font-weight: bold;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 .close:hover, .close:focus {
-	color: black;
-	text-decoration: none;
-	cursor: pointer;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
+
 /* --- MODAL END --- */
 
 /* --- BOOTSRAP TABLE TWEAKS --- */
-.table-striped > tbody > tr:nth-child(even) > td,
-.table-striped > tbody > tr:nth-child(even) > th {
-	background-color: #dbedff;
+
+.table-striped>tbody>tr:nth-child(even)>td, .table-striped>tbody>tr:nth-child(even)>th {
+    background-color: #dbedff;
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 .table {
-	font-family: monospace;
+    font-family: monospace;
 }
+
 /* --- TABLE TWEAKS END --- */
 
 /* --- BUTTON TWEAKS --- */
+
 #controls .btn {
-	background-color: white;
+    background-color: white;
 }
+
 #controls .btn:focus, #modal .btn:focus {
-	outline: 0;
+    outline: 0;
 }
 
 #controls .btn:hover, #modal .btn:hover {
-	border-color: #5E9ED6;
-	background-color: white;
+    border-color: #5E9ED6;
+    background-color: white;
 }
 
-#controls #clear:hover, #controls #deleteLast:hover {
-	border-color: red;
+#controls #clear:hover, #controls #delete:hover {
+    border-color: red;
 }
+
 /* --- BUTTON TWEAKS END --- */
 
 /* --- --- */
 
 #info {
-	position: absolute;
-	top: 2px;
-	right: 2px;
-	font-size:20px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 20px;
 }
+
 body {
-	overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 h1 {
-	text-align: center;
-	font-size: 48px;
+    text-align: center;
+    font-size: 48px;
 }
 
 h1 span {
-	margin-right: 10px;
+    margin-right: 10px;
 }
 
 #itemCount {
-	font-size: 40px;
-	text-align: center;
-	margin-top: 0px;
-	margin-bottom: 0px;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 #controls {
-	display: inline;
+    display: inline;
 }
 
 #controls #dataField {
-	margin-bottom: 20px;
-	height: 48px;
+    margin-bottom: 20px;
+    height: 48px;
 }
 
-#submit{
-	display: none;
+#submit {
+    display: none;
 }
-#download{
-	
+
+
+#clear {
+
+float:right;
+margin-right: 10px;
 }
-#clear, #deleteLast {
-	float: right;
-}
+
 #table-wrapper {
-	position: relative;
-	background-color: white;
-	
-	border-top: 1px solid black;
+    position: relative;
+    background-color: white;
+    border-top: 1px solid black;
 }
+
 tbody .glyphicon {
-	padding: 0 8px 0 8px;
-	font-size: 28px;
+    padding: 0 8px 0 8px;
+    font-size: 28px;
 }
 
 /* --- TABLET SIZED DEVICES AND LARGER --- */
+
 @media (min-width: 768px) {
-	#info {
-		font-size: 20px;
-		position: absolute;
-		top: 5%;
-		right: 5%;
-	}
-
-	h1 {
-		text-align: center;
-		font-size: 40px;
-	}
-
-	#itemCount {
-		font-size: 32px;
-	}
-
-	#controls #dataField {
-		display: inline;
-		width: 33%;
-		height: 40px;
-	}
-
-	#controls #submit,
-	#controls #download,
-	#controls #clear,
-	#controls #deleteLast {
-		height: 40px;
-	}
-
-	thead {
-		font-size: 20px;
-	}
-
-	tbody {
-		font-size: 16px;
-	}
+    #info {
+        font-size: 20px;
+        position: absolute;
+        top: 5%;
+        right: 5%;
+    }
+    h1 {
+        text-align: center;
+        font-size: 40px;
+    }
+    #itemCount {
+        font-size: 32px;
+    }
+    #controls #dataField {
+        display: inline;
+        width: 33%;
+        height: 40px;
+    }
+    #controls #submit, #controls #download, #controls #clear, #controls #deleteLast {
+        height: 40px;
+    }
+    thead {
+        font-size: 20px;
+    }
+    tbody {
+        font-size: 16px;
+    }
 }
