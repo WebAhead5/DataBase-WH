@@ -1,6 +1,4 @@
 var handlers = require('./handlers.js');
-// var giphyHandler = require('./giphyhandler');
-// var oxfordHandler = require('./oxford');
 
 function router(request, response) {
     if (request.url === '/') {
@@ -12,7 +10,7 @@ function router(request, response) {
     // else if (request.url.includes('api/giphyhandler')) {
     //     giphyHandler.giphyModule(request, response)
     // }
-    }else {
+    } else {
         handlers.publicHandler(request, response);
     } 
 }
