@@ -1,6 +1,6 @@
 BEGIN;
 
--- DROP TABLE IF EXISTS product, prices CASCADE;
+DROP TABLE IF EXISTS product, prices CASCADE;
 
 CREATE TABLE product (
   id            serial          PRIMARY KEY,
@@ -9,6 +9,7 @@ CREATE TABLE product (
 );
 
 CREATE TABLE prices (
+  id            serial         PRIMARY KEY,
   price         DECIMAL(5,2)   NOT NULL ,
   product_id    INTEGER        REFERENCES product(id) ON UPDATE CASCADE
 );
@@ -20,10 +21,10 @@ INSERT INTO product(name, quantity) VALUES
   ('milk', 300)
 RETURNING ID;
 
-INSERT INTO prices(price, productid) VALUES
+INSERT INTO prices(price, product_id) VALUES
   (5.99, 1),
   (10.99, 2),
-  (6.99, 3),
+  (6.99, 3)
 RETURNING ID;
 
 COMMIT;

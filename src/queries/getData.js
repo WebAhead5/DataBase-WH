@@ -1,11 +1,11 @@
 const databaseConnection = require('../database/db_connection.js');
 
 const getData = cb => {
-  databaseConnection.query('SELECT * FROM users', (err, res) => {
+  databaseConnection.query('SELECT product.id,product.name,product.quantity,prices.price FROM product inner join prices on product.id=prices.product_id;', (err, res) => {
     if (err) {
       cb(err);
     } else {
-      cb(null, res.rows);
+      cb(null, JSON.stringify(res.rows));
     }
   });
 };
