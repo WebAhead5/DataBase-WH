@@ -3,10 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="/public/app.js"></script>
     <link rel="stylesheet" href="/public/style.css">
     <title>Exciting Shopping </title>
@@ -15,15 +13,14 @@
 <body>
     <div class="row">
         <a href="#" id="info"><span class="glyphicon glyphicon-info-sign"></span></a>
-        <h1>Shopping Collector</h1>
+        <h1>Product Collector</h1>
     </div>
-    <div class="row">
-        <h2 id="itemCount">Number of items: 0</h2>
-    </div>
+
     <div class="row" id="controls">
-        <input class="form-control input-sm" type="text" id="dataField" placeholder="" />
-        <!-- <input class="btn" type="button" id="submit" value="Submit" /> -->
-        <input class="btn" type="button" id="inset" value="Insert Item" />
+        <input type="text" id="productField" placeholder="Please enter your product" />
+        <input type="number" id="quantityField" placeholder="0" />
+        <input type="number" id="PriceField" placeholder="0.00" disabled />
+        <input class="btn" type="button" id="insert" value="Insert Item" />
         <input class="btn" type="button" id="delete" value="Delete Item" />
         <input class="btn" type="button" id="clear" value="Clear" />
 
@@ -43,15 +40,6 @@
         </table>
     </div>
 
-    <!-- <div id="modal" class="modal">
-            <div class="modalContent">
-                <span id="modalClose" class="close">&times;</span>
-                <h3 id="modalHead">Alert</h3>
-                <p id="modalMessage">You should recieve alerts here.</p>
-                <button class="btn btn-default btn-lg" id="modalConfirm">Confirm</button>
-                <button class="btn btn-default btn-lg" id="modalDeny">Deny</button>
-            </div>
-        </div> -->
 
 </body>
 
