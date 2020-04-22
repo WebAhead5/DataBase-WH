@@ -17,6 +17,7 @@ function request(url, cb) {
       console.error(err);
     } else {
       var items = JSON.parse(data);
+      console.log('Here is your' ,data);
       var table = document.getElementById('dataTable');
     //   /* create a row in table for each user returned from DB */
       items.forEach(function(item) {
@@ -39,4 +40,5 @@ function request(url, cb) {
   }
 
 
+  
   request('/items', updateDom);
