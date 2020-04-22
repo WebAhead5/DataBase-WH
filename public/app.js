@@ -12,13 +12,13 @@ function request(url, cb) {
 }
 
 function updateDom(err,data) {
-  console.log(data);
   if (err) {
     console.error(err);
   } else {
     var items = JSON.parse(data);
     var table = document.getElementById('dataTable');
     Array.from(table.childNodes).forEach(node => {
+      
       table.removeChild(node);
     });
     /* create a row in table for each user returned from DB */
