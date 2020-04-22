@@ -2,7 +2,7 @@ var fs = require('fs')
 const path = require('path');
 const qs = require('querystring');
 
-const getitems = require('./queries/getData');
+const getData = require('./queries/getData');
 
 
 var extensionTypesObj = {
@@ -43,7 +43,7 @@ const publicHandler = (request, response) => {
 
 const getItemsHandler = response => {
 
-    getitems.getData((err, res) => {
+    getData.getData((err, res) => {
       if (err) {
         console.log(err)
         response.end('Sorry error found');
@@ -55,7 +55,7 @@ const getItemsHandler = response => {
 
   const getDescriptionsHandler = response => {
 
-    getitems.getAllDescriptions((err, res) => {
+    getData.getAllDescriptions((err, res) => {
       if (err) {
         console.log(err)
         response.end('Sorry error found');

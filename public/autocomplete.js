@@ -3,14 +3,17 @@ var productField = document.getElementById('productField');
 var fullArray = []
 var xhr = new XMLHttpRequest();
 var url = '/alldescriptions';
+// var url = '/products.txt'
 xhr.open('GET', url);
 xhr.send();
+let arrayofdescrips = []
 
 xhr.onreadystatechange = function onReadyStateChange() {
     if (xhr.readyState === 4 && xhr.status === 200) {
-        console.log("xhr.responseText: ", xhr.responseText)
-        const response = xhr.responseText.split('\n');
-        fullArray = response;
+        console.log("xhr.responseText: ", JSON.parse(xhr.responseText));
+        JSON.parse(xhr.responseText).forEach(x => {
+            arrayofdescrips.push(x.name)
+        })
     }
 };
 
@@ -30,7 +33,7 @@ function setDataList(inputtedtext) {
     }
 
     var regex = new RegExp(`^${inputtedtext}`, 'gi');
-    let matchedWords = fullArray.filter(word => {
+    let matchedWords = arrayofdescrips.filter(word => {
         return word.match(regex);
     }).slice(0, 10);
 
