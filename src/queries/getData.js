@@ -16,7 +16,7 @@ const getAllDescriptions = cb => {
       cb(err);
     } else {
       cb(null, JSON.stringify(res.rows));
-      console.log("getAlldescriptions is working: ",JSON.stringify(res.rows))
+      // console.log("getAlldescriptions is working: ",JSON.stringify(res.rows))
     }
   });
 };

@@ -4,7 +4,8 @@ const qs = require('querystring');
 const url = require('url');
 
 const getData = require('./queries/getData');
-const postData= require('./queries/postData');
+const postData = require('./queries/postData');
+const filterData=require('./queries/filterData');
 
 
 var extensionTypesObj = {
@@ -70,27 +71,39 @@ const getDescriptionsHandler = response => {
 
 const insertItemsHandler = (request, response) => {
 
-    const parsedurl=url.parse(request.url).query;
-    
-    const parsedobject= qs.parse(parsedurl);
+    const parsedurl = url.parse(request.url).query;
+
+    const parsedobject = qs.parse(parsedurl);
 
     const name = parsedobject.description;
     const quantity = parsedobject.quantity;
 
-  
-      postData(name,quantity, (err, res) => {
-        if (err) {
-          console.log(err)
-          response.end('Sorry error found');
-        }
-        response.writeHead(302, {'Location':'/'});
-        response.end()
-  
-  
-  
-      })
-  }
 
+    postData(name, quantity, (err, res) => {
+        if (err) {
+            console.log(err)
+            response.end('Sorry error found');
+        }
+        response.writeHead(302, { 'Location': '/' });
+        response.end()
+
+
+
+    })
+}
+
+
+const filterItemsHandler = response => {
+
+    filterData((err, res) => {
+        if (err) {
+            console.log(err)
+            response.end('Sorry error found');
+        }
+        response.writeHead(200, { 'Content-Type': 'application/json' });
+        response.end(res)
+    })
+};
 
 
 
@@ -99,5 +112,5 @@ module.exports = {
     publicHandler: publicHandler,
     getItemsHandler: getItemsHandler,
     getDescriptionsHandler: getDescriptionsHandler,
-    insertItemsHandler : insertItemsHandler
+    insertItemsHandler: insertItemsHandler
 }

@@ -9,7 +9,7 @@ let arrayofdescrips = []
 
 xhr.onreadystatechange = function onReadyStateChange() {
     if (xhr.readyState === 4 && xhr.status === 200) {
-        console.log("xhr.responseText: ", JSON.parse(xhr.responseText));
+        // console.log("xhr.responseText: ", JSON.parse(xhr.responseText));
         JSON.parse(xhr.responseText).forEach(x => {
             arrayofdescrips.push(x.name)
         })
