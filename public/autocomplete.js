@@ -16,6 +16,7 @@ xhr.onreadystatechange = function onReadyStateChange() {
     }
 };
 
+
 function clearSearchList() {
     const list = document.getElementById('autocompleteresults')
 
@@ -55,4 +56,3 @@ productField.addEventListener('input', () => {
     clearSearchList();
     setDataList(productField.value)
 })
-

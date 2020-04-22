@@ -5,7 +5,7 @@ const url = require('url');
 
 const getData = require('./queries/getData');
 const postData = require('./queries/postData');
-const filterData=require('./queries/filterData');
+const filterData = require('./queries/filterData');
 
 
 var extensionTypesObj = {
@@ -17,9 +17,9 @@ var extensionTypesObj = {
     gif: 'image/gif'
 }
 
-const indexHandler = function (request, response) {
+const indexHandler = function(request, response) {
     response.writeHead(200, { "Content-Type": "text/html" })
-    fs.readFile(__dirname + '/../public/index.html', function (error, file) {
+    fs.readFile(__dirname + '/../public/index.html', function(error, file) {
         if (error) {
             console.log("indexHandler error: ", error);
             return;
@@ -68,6 +68,19 @@ const getDescriptionsHandler = response => {
     })
 };
 
+const getPriceHandler = response => {
+
+    getData.getAllDescriptions((err, res) => {
+        if (err) {
+            console.log(err)
+            response.end('Sorry error found');
+        }
+        response.writeHead(200, { 'Content-Type': 'application/json' });
+        response.end(res)
+    })
+};
+
+
 
 const insertItemsHandler = (request, response) => {
 
@@ -101,9 +114,9 @@ const filterItemsHandler = response => {
 
     const filtredname = parsedfiltered.product;
     const filtredquantity = parsedfiltered.quantity;
-    const filtredprice =parsedfiltered.price;
+    const filtredprice = parsedfiltered.price;
 
-    filterData(filtredname,filtredquantity,filtredprice,(err, res) => {
+    filterData(filtredname, filtredquantity, filtredprice, (err, res) => {
         if (err) {
             console.log(err)
             response.end('Sorry error found');
@@ -121,5 +134,5 @@ module.exports = {
     getItemsHandler: getItemsHandler,
     getDescriptionsHandler: getDescriptionsHandler,
     insertItemsHandler: insertItemsHandler,
-    filterItemsHandler:filterItemsHandler
+    filterItemsHandler: filterItemsHandler
 }

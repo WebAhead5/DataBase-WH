@@ -4,18 +4,17 @@ function router(request, response) {
     if (request.url === '/') {
         handlers.indexHandler(request, response)
     } else if (request.url === '/items') {
-        handlers.getItemsHandler(response); {
-        }
+        handlers.getItemsHandler(response);
 
     } else if (request.url === '/alldescriptions') {
-        handlers.getDescriptionsHandler(response); {
-        }
+        handlers.getDescriptionsHandler(response);
     } else if (request.url.includes('/insertitems')) {
-        handlers.insertItemsHandler(request,response); {
-        }
+        handlers.insertItemsHandler(request, response);
     } else if (request.url.includes('/filteritems')) {
-        handlers.filterItemsHandler(request,response); {
-        }
+        handlers.filterItemsHandler(request, response);
+    } else if (request.url.includes('/updateprice')) {
+        handlers.getPriceHandler(request, response);
+
 
 
 

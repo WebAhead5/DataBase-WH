@@ -19,10 +19,10 @@ function updateDom(err, data) {
     } else {
         var items = JSON.parse(data);
         var table = document.getElementById('dataTable');
-        // Array.from(table.childNodes).forEach(node => {
-        //     table.removeChild(node);
-        //  });
-        //   /* create a row in table for each user returned from DB */
+        Array.from(table.childNodes).forEach(node => {
+            table.removeChild(node);
+        });
+        /* create a row in table for each user returned from DB */
         items.forEach(function(item) {
             var row = document.createElement('tr');
             var id = document.createElement('td');
