@@ -3,7 +3,6 @@ var productField = document.getElementById('productField');
 var fullArray = []
 var xhr = new XMLHttpRequest();
 var url = '/alldescriptions';
-// var url = '/products.txt'
 xhr.open('GET', url);
 xhr.send();
 let arrayofdescrips = []

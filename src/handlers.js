@@ -26,8 +26,8 @@ const indexHandler = function (request, response) {
 }
 
 const publicHandler = (request, response) => {
-    const url = request.url; 
-    const extension = url.split('.')[1]; 
+    const url = request.url;
+    const extension = url.split('.')[1];
     const filePath = path.join(__dirname, "..", url);
     fs.readFile(filePath, (error, file) => {
         if (error) {
@@ -44,33 +44,33 @@ const publicHandler = (request, response) => {
 const getItemsHandler = response => {
 
     getData.getData((err, res) => {
-      if (err) {
-        console.log(err)
-        response.end('Sorry error found');
-      }
-      response.writeHead(200, { 'Content-Type': 'application/json' });
-      response.end(res)
+        if (err) {
+            console.log(err)
+            response.end('Sorry error found');
+        }
+        response.writeHead(200, { 'Content-Type': 'application/json' });
+        response.end(res)
     })
-  };
+};
 
-  const getDescriptionsHandler = response => {
+const getDescriptionsHandler = response => {
 
     getData.getAllDescriptions((err, res) => {
-      if (err) {
-        console.log(err)
-        response.end('Sorry error found');
-      }
-      response.writeHead(200, { 'Content-Type': 'application/json' });
-      response.end(res)
+        if (err) {
+            console.log(err)
+            response.end('Sorry error found');
+        }
+        response.writeHead(200, { 'Content-Type': 'application/json' });
+        response.end(res)
     })
-  };
-  
+};
 
-  
+
+
 
 module.exports = {
     indexHandler: indexHandler,
     publicHandler: publicHandler,
-    getItemsHandler:getItemsHandler,
-    getDescriptionsHandler:getDescriptionsHandler
+    getItemsHandler: getItemsHandler,
+    getDescriptionsHandler: getDescriptionsHandler
 }

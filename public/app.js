@@ -17,7 +17,6 @@ function request(url, cb) {
       console.error(err);
     } else {
       var items = JSON.parse(data);
-      console.log(items);
       var table = document.getElementById('dataTable');
     //   /* create a row in table for each user returned from DB */
       items.forEach(function(item) {
