@@ -15,16 +15,16 @@ const getData = cb => {
 
 
 
-// const getPrice = cb => {
-//     databaseConnection.query('SELECT * FROM product W', (err, res) => {
-//         if (err) {
-//             cb(err);
-//         } else {
-//             cb(null, JSON.stringify(res.rows));
-//             // console.log("getPrice is working: ",JSON.stringify(res.rows))
-//         }
-//     });
-
+const getPrice = (name, cb) => {
+    databaseConnection.query(`SELECT price FROM prices WHERE name = '${name}'`, (err, res) => {
+        if (err) {
+            cb(err);
+        } else {
+            cb(null, JSON.stringify(res.rows));
+            // console.log("getPrice is working: ",JSON.stringify(res.rows))
+        }
+    });
+}
 
 
 
@@ -42,5 +42,6 @@ const getAllDescriptions = cb => {
 
 module.exports = {
     getData: getData,
-    getAllDescriptions: getAllDescriptions
-}
+    getAllDescriptions: getAllDescriptions,
+    getPrice: getPrice
+};

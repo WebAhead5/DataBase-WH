@@ -27,28 +27,32 @@ document.getElementById('insert').addEventListener('click', () => {
 
 
 
-// function updatePrice() {
-//     var xhr = new XMLHttpRequest();
-//     var url = `/updateprice?description=${productinput.value}`;
-//     xhr.open('GET', url);
-//     xhr.send();
+function updatePrice() {
+    var xhr = new XMLHttpRequest();
+    var url = `/updateprice?description=${productField.value}`;
+    xhr.open('GET', url);
+    xhr.send();
 
-//     xhr.onreadystatechange = function onReadyStateChange() {
+    xhr.onreadystatechange = function onReadyStateChange() {
 
-//         if (xhr.readyState === 4 && xhr.status === 200) {
-//             //request('/items', updateDomPrice);
-//         }
-//     };
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var price = JSON.parse(xhr.response)
+            console.log(price)
+            document.getElementById("PriceField").value = price[0].price;
 
-// }
+            //request('/items', updateDomPrice);
+        }
+    };
+
+}
 
 
 
 
 
-// document.getElementById('insert').addEventListener('input', () => {
+document.getElementById('productField').addEventListener('input', () => {
 
-//         updatePrice()
+        updatePrice()
 
-//     })
-//     //HELLO HADI!
+    })
+    //HELLO HADI!
