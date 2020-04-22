@@ -16,6 +16,13 @@ function router(request, response) {
 
     } else if (request.url.includes('/filteritems')) {
         handlers.filterItemsHandler(request, response);
+
+    } else if (request.url.includes('/sortitemsbyquantity')) {
+        handlers.sortItemsbyquantityHandler(response);
+
+    
+    } else if (request.url.includes('/sortitemsbyprice')) {
+        handlers.sortItemsbypriceHandler(response);
         
     } else if (request.url.includes('/updateprice')) {
         handlers.getPriceHandler(request, response);

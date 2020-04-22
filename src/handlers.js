@@ -5,7 +5,8 @@ const url = require('url');
 
 const getData = require('./queries/getData');
 const postData = require('./queries/postData');
-const filterData=require('./queries/filterData');
+const filterData = require('./queries/filterData');
+const sortData = require('./queries/sortData');
 
 
 var extensionTypesObj = {
@@ -111,7 +112,7 @@ const insertItemsHandler = (request, response) => {
 }
 
 
-const filterItemsHandler = (request,response) => {
+const filterItemsHandler = (request, response) => {
 
     const queryfiltered = url.parse(request.url).query;
 
@@ -119,11 +120,42 @@ const filterItemsHandler = (request,response) => {
 
     const filtredname = parsedfiltered.product;
     const filtredquantity = parsedfiltered.quantity;
-    const filtredprice =parsedfiltered.price;
-    console.log('you reached filtering')
-    console.log(parsedfiltered);
+    const filtredprice = parsedfiltered.price;
 
-    filterData(filtredname,filtredquantity,filtredprice,(err, res) => {
+
+    filterData(filtredname, filtredquantity, filtredprice, (err, res) => {
+        if (err) {
+            console.log(err)
+            response.end('Sorry error found');
+        }
+        response.writeHead(200, { 'Content-Type': 'application/json' });
+        response.end(res)
+    })
+};
+
+
+
+const sortItemsbyquantityHandler = response => {
+
+
+    console.log('you reached sorting by quantity')
+
+
+    sortData.sortbyquantity((err, res) => {
+        if (err) {
+            console.log(err)
+            response.end('Sorry error found');
+        }
+        response.writeHead(200, { 'Content-Type': 'application/json' });
+        response.end(res)
+    })
+};
+
+const sortItemsbypriceHandler = response => {
+
+    console.log('you reached sorting by price')
+
+    sortData.sortbyprice((err, res) => {
         if (err) {
             console.log(err)
             response.end('Sorry error found');
@@ -136,6 +168,8 @@ const filterItemsHandler = (request,response) => {
 
 
 
+
+
 module.exports = {
     indexHandler: indexHandler,
     publicHandler: publicHandler,
@@ -143,6 +177,8 @@ module.exports = {
     getDescriptionsHandler: getDescriptionsHandler,
     insertItemsHandler: insertItemsHandler,
     filterItemsHandler: filterItemsHandler,
-    getPriceHandler: getPriceHandler
+    getPriceHandler: getPriceHandler,
+    sortItemsbypriceHandler:sortItemsbypriceHandler,
+    sortItemsbyquantityHandler:sortItemsbyquantityHandler
 
 }

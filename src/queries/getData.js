@@ -14,7 +14,6 @@ const getData = cb => {
 
 
 
-
 const getPrice = (name, cb) => {
     databaseConnection.query(`SELECT price FROM prices WHERE name = '${name}'`, (err, res) => {
         if (err) {
@@ -24,7 +23,6 @@ const getPrice = (name, cb) => {
         }
     });
 }
-
 
 
 const getAllDescriptions = cb => {
