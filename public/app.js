@@ -3,7 +3,7 @@ function request(url, cb) {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             cb(null, xhr.responseText);
-            console.log(xhr.response);
+            //console.log(xhr.response);
         } else {
             cb('error' + xhr.responseType);
         }
@@ -13,14 +13,16 @@ function request(url, cb) {
 }
 
 function updateDom(err, data) {
-
+// console.log(data)
     if (err) {
         console.error(err);
     } else {
+      //console.log("This is the else", data)
         var items = JSON.parse(data);
         var table = document.getElementById('dataTable');
         Array.from(table.childNodes).forEach(node => {
-            table.removeChild(node);
+          if(node.nodeName == 'TR') table.removeChild(node);
+          else return
         });
         /* create a row in table for each user returned from DB */
         items.forEach(function(item) {
