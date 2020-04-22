@@ -12,8 +12,9 @@ function router(request, response) {
         handlers.insertItemsHandler(request, response);
     } else if (request.url.includes('/filteritems')) {
         handlers.filterItemsHandler(request, response);
-        // } else if (request.url.includes('/updateprice')) {
-        //     handlers.getPriceHandler(request, response);
+    } else if (request.url.includes('/updateprice')) {
+        handlers.getPriceHandler(request, response);
+
 
 
 
