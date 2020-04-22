@@ -10,7 +10,7 @@ var filteredprice = document.getElementById('PriceFieldFilter');
 
 function filterproduct() {
     var xhr = new XMLHttpRequest();
-    var url = `/filteritems?product=${filteredproduct.value}&quantity=${filteredquantity.value}&price=${filteredprice.value}`;
+    var url = `/filteritems?product='${filteredproduct.value}'&quantity=${filteredquantity.value}&price=${filteredprice.value}`;
     xhr.open('GET', url);
     xhr.send();
 

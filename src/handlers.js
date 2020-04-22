@@ -68,7 +68,22 @@ const getDescriptionsHandler = response => {
     })
 };
 
+const getPriceHandler = (request, response) => {
+    const parsedurl = url.parse(request.url).query;
 
+    const parsedobject = qs.parse(parsedurl);
+
+    const name = parsedobject.description;
+
+    getData.getPrice(name, (err, res) => {
+        if (err) {
+            console.log(err)
+            response.end('Sorry error found');
+        }
+        response.writeHead(200, { 'Content-Type': 'application/json' });
+        response.end(res)
+    })
+};
 
 
 
@@ -125,5 +140,7 @@ module.exports = {
     getItemsHandler: getItemsHandler,
     getDescriptionsHandler: getDescriptionsHandler,
     insertItemsHandler: insertItemsHandler,
-    filterItemsHandler:filterItemsHandler
+    filterItemsHandler: filterItemsHandler,
+    getPriceHandler: getPriceHandler
+
 }
