@@ -2,61 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* border: 2px blue solid; */
 }
 
 body {
-    /*
-	Japanese Asanoha
-	APRIL 3, 2016
-
-	The Asanoha pattern is one of the most popular traditional 			patterns, often seen on Japanese kimono.
-
-	Made by Olga Libby
-	*/
     background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/asanoha-400px.png");
 }
-
-/* --- MODAL --- */
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modalContent {
-    position: relative;
-    margin: 10% auto 0 auto;
-    background-color: white;
-    padding: 20px;
-    border: 1px solid gray;
-    width: 80%;
-    font-size: 18px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover, .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* --- MODAL END --- */
-
-/* --- BOOTSRAP TABLE TWEAKS --- */
 
 .table-striped>tbody>tr:nth-child(even)>td, .table-striped>tbody>tr:nth-child(even)>th {
     background-color: #dbedff;
@@ -69,10 +20,6 @@ body {
 .table {
     font-family: monospace;
 }
-
-/* --- TABLE TWEAKS END --- */
-
-/* --- BUTTON TWEAKS --- */
 
 #controls .btn {
     background-color: white;
@@ -91,10 +38,6 @@ body {
     border-color: red;
 }
 
-/* --- BUTTON TWEAKS END --- */
-
-/* --- --- */
-
 #info {
     position: absolute;
     top: 2px;
@@ -111,35 +54,17 @@ h1 {
     font-size: 48px;
 }
 
-h1 span {
+h1 {
     margin-right: 10px;
-}
-
-#itemCount {
-    font-size: 40px;
-    text-align: center;
-    margin-top: 0px;
-    margin-bottom: 0px;
 }
 
 #controls {
     display: inline;
 }
 
-#controls #dataField {
-    margin-bottom: 20px;
-    height: 48px;
-}
-
-#submit {
-    display: none;
-}
-
-
 #clear {
-
-float:right;
-margin-right: 10px;
+    float: right;
+    margin-right: 10px;
 }
 
 #table-wrapper {
@@ -153,8 +78,6 @@ tbody .glyphicon {
     font-size: 28px;
 }
 
-/* --- TABLET SIZED DEVICES AND LARGER --- */
-
 @media (min-width: 768px) {
     #info {
         font-size: 20px;
@@ -166,15 +89,12 @@ tbody .glyphicon {
         text-align: center;
         font-size: 40px;
     }
-    #itemCount {
-        font-size: 32px;
-    }
-    #controls #dataField {
+    #controls {
         display: inline;
         width: 33%;
         height: 40px;
     }
-    #controls #submit, #controls #download, #controls #clear, #controls #deleteLast {
+    #controls, #controls #clear, #controls #delete, #controls #insert {
         height: 40px;
     }
     thead {
@@ -183,4 +103,8 @@ tbody .glyphicon {
     tbody {
         font-size: 16px;
     }
+}
+
+.hidden {
+    display: none;
 }

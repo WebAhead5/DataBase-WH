@@ -1,8 +1,11 @@
 var fs = require('fs')
 const path = require('path');
 const qs = require('querystring');
+const url = require('url');
 
-const getitems = require('./queries/getData');
+const getData = require('./queries/getData');
+const postData= require('./queries/postData');
+
 
 var extensionTypesObj = {
     html: 'text/html',
@@ -25,8 +28,8 @@ const indexHandler = function (request, response) {
 }
 
 const publicHandler = (request, response) => {
-    const url = request.url; 
-    const extension = url.split('.')[1]; 
+    const url = request.url;
+    const extension = url.split('.')[1];
     const filePath = path.join(__dirname, "..", url);
     fs.readFile(filePath, (error, file) => {
         if (error) {
@@ -42,21 +45,59 @@ const publicHandler = (request, response) => {
 
 const getItemsHandler = response => {
 
-    getitems((err, res) => {
-      if (err) {
-        console.log(err)
-        response.end('Sorry error found');
-      }
-      response.writeHead(200, { 'Content-Type': 'application/json' });
-      response.end(res)
-  
+    getData.getData((err, res) => {
+        if (err) {
+            console.log(err)
+            response.end('Sorry error found');
+        }
+        response.writeHead(200, { 'Content-Type': 'application/json' });
+        response.end(res)
     })
+};
+
+const getDescriptionsHandler = response => {
+
+    getData.getAllDescriptions((err, res) => {
+        if (err) {
+            console.log(err)
+            response.end('Sorry error found');
+        }
+        response.writeHead(200, { 'Content-Type': 'application/json' });
+        response.end(res)
+    })
+};
+
+
+const insertItemsHandler = (request, response) => {
+
+    const parsedurl=url.parse(request.url).query;
+    
+    const parsedobject= qs.parse(parsedurl);
+
+    const name = parsedobject.description;
+    const quantity = parsedobject.quantity;
+
+  
+      postData(name,quantity, (err, res) => {
+        if (err) {
+          console.log(err)
+          response.end('Sorry error found');
+        }
+        response.writeHead(302, {'Location':'/'});
+        response.end()
   
   
-  };
+  
+      })
+  }
+
+
+
 
 module.exports = {
     indexHandler: indexHandler,
     publicHandler: publicHandler,
-    getItemsHandler:getItemsHandler
+    getItemsHandler: getItemsHandler,
+    getDescriptionsHandler: getDescriptionsHandler,
+    insertItemsHandler : insertItemsHandler
 }

@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE IF EXISTS product, prices CASCADE;
+-- DROP TABLE IF EXISTS product, prices CASCADE;
 
 CREATE TABLE product (
   id            serial          PRIMARY KEY,
