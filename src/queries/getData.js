@@ -21,7 +21,6 @@ const getPrice = (name, cb) => {
             cb(err);
         } else {
             cb(null, JSON.stringify(res.rows));
-            // console.log("getPrice is working: ",JSON.stringify(res.rows))
         }
     });
 }

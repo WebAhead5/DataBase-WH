@@ -16,11 +16,14 @@ function postproduct() {
 
 }
 
+
 document.getElementById('insert').addEventListener('click', () => {
 
     postproduct()
 
 })
+
+
 
 
 
@@ -36,7 +39,6 @@ function updatePrice() {
             var price = JSON.parse(xhr.response)
             console.log(price)
             document.getElementById("PriceField").value = price[0].price;
-
         }
     };
 
@@ -44,8 +46,10 @@ function updatePrice() {
 
 
 
+
+
 document.getElementById('productField').addEventListener('input', () => {
 
-        updatePrice()
+    updatePrice()
 
-    })
+})

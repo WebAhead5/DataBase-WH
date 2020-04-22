@@ -120,6 +120,8 @@ const filterItemsHandler = (request,response) => {
     const filtredname = parsedfiltered.product;
     const filtredquantity = parsedfiltered.quantity;
     const filtredprice =parsedfiltered.price;
+    console.log('you reached filtering')
+    console.log(parsedfiltered);
 
     filterData(filtredname,filtredquantity,filtredprice,(err, res) => {
         if (err) {
