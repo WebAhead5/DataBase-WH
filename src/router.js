@@ -8,15 +8,14 @@ function router(request, response) {
         }
 
     } else if (request.url === '/alldescriptions') {
-        handlers.getDescriptionsHandler(response); {
-        }
-    } else if (request.url.includes('/insertitems')) {
-        handlers.insertItemsHandler(request,response); {
-        }
-    } else if (request.url.includes('/filteritems')) {
-        handlers.filterItemsHandler(request,response); {
-        }
+        handlers.getDescriptionsHandler(response);
 
+    } else if (request.url.includes('/insertitems')) {
+        handlers.insertItemsHandler(request, response);
+
+
+    } else if (request.url.includes('/filteritems')) {
+        handlers.filterItemsHandler(request, response);
 
 
     } else {

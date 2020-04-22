@@ -99,11 +99,11 @@ const filterItemsHandler = (request,response) => {
 
     const parsedfiltered = qs.parse(queryfiltered);
 
-    // const filtredname = parsedfiltered.product;
+    const filtredname = parsedfiltered.product;
     const filtredquantity = parsedfiltered.quantity;
     const filtredprice =parsedfiltered.price;
 
-    filterData(filtredquantity,filtredprice,(err, res) => {
+    filterData(filtredname,filtredquantity,filtredprice,(err, res) => {
         if (err) {
             console.log(err)
             response.end('Sorry error found');

@@ -16,6 +16,7 @@ xhr.onreadystatechange = function onReadyStateChange() {
     }
 };
 
+
 function clearSearchList() {
     const list = document.getElementById('autocompleteresults')
 
@@ -25,7 +26,7 @@ function clearSearchList() {
 }
 
 function setDataList(inputtedtext) {
-    console.log("setDatalist firing!", inputtedtext)
+    // console.log("setDatalist firing!", inputtedtext)
     const list = document.getElementById('autocompleteresults')
     if (productField.value == '') {
         return
@@ -51,8 +52,7 @@ function setDataList(inputtedtext) {
 }
 
 productField.addEventListener('input', () => {
-    console.log("eventlistenerfunction firing!")
+    // console.log("eventlistenerfunction firing!")
     clearSearchList();
     setDataList(productField.value)
 })
-
