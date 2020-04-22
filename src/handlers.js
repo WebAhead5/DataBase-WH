@@ -68,17 +68,17 @@ const getDescriptionsHandler = response => {
     })
 };
 
-const getPriceHandler = response => {
+// const getPriceHandler = response => {
 
-    getData.getAllDescriptions((err, res) => {
-        if (err) {
-            console.log(err)
-            response.end('Sorry error found');
-        }
-        response.writeHead(200, { 'Content-Type': 'application/json' });
-        response.end(res)
-    })
-};
+//     getData.getPrice((err, res) => {
+//         if (err) {
+//             console.log(err)
+//             response.end('Sorry error found');
+//         }
+//         response.writeHead(200, { 'Content-Type': 'application/json' });
+//         response.end(res)
+//     })
+// };
 
 
 

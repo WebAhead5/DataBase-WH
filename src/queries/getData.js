@@ -10,6 +10,24 @@ const getData = cb => {
     });
 };
 
+
+
+
+
+
+// const getPrice = cb => {
+//     databaseConnection.query('SELECT * FROM product W', (err, res) => {
+//         if (err) {
+//             cb(err);
+//         } else {
+//             cb(null, JSON.stringify(res.rows));
+//             // console.log("getPrice is working: ",JSON.stringify(res.rows))
+//         }
+//     });
+
+
+
+
 const getAllDescriptions = cb => {
     databaseConnection.query('SELECT * FROM product', (err, res) => {
         if (err) {
