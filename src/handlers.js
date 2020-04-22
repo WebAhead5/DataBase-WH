@@ -95,7 +95,15 @@ const insertItemsHandler = (request, response) => {
 
 const filterItemsHandler = response => {
 
-    filterData((err, res) => {
+    const queryfiltered = url.parse(request.url).query;
+
+    const parsedfiltered = qs.parse(queryfiltered);
+
+    const filtredname = parsedfiltered.product;
+    const filtredquantity = parsedfiltered.quantity;
+    const filtredprice =parsedfiltered.price;
+
+    filterData(filtredname,filtredquantity,filtredprice,(err, res) => {
         if (err) {
             console.log(err)
             response.end('Sorry error found');
@@ -112,5 +120,6 @@ module.exports = {
     publicHandler: publicHandler,
     getItemsHandler: getItemsHandler,
     getDescriptionsHandler: getDescriptionsHandler,
-    insertItemsHandler: insertItemsHandler
+    insertItemsHandler: insertItemsHandler,
+    filterItemsHandler:filterItemsHandler
 }

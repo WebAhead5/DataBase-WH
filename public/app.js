@@ -40,5 +40,3 @@ function request(url, cb) {
 
 
   request('/items', updateDom);
-  
-  
