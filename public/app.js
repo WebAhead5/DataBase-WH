@@ -42,4 +42,5 @@ function updateDom(err, data) {
     }
 }
 
+
 request('/items', updateDom);

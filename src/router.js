@@ -11,9 +11,10 @@ function router(request, response) {
         handlers.getDescriptionsHandler(response); {
         }
     } else if (request.url.includes('/insertitems')) {
-        console.log('you are in router');
-        console.log(request.url);
         handlers.insertItemsHandler(request,response); {
+        }
+    } else if (request.url.includes('/filteritems')) {
+        handlers.filterItemsHandler(request,response); {
         }
 
 
