@@ -2,7 +2,8 @@ var fs = require('fs')
 const path = require('path');
 const qs = require('querystring');
 
-const getitems = require('./queries/getData');
+const getData = require('./queries/getData');
+
 
 var extensionTypesObj = {
     html: 'text/html',
@@ -42,21 +43,34 @@ const publicHandler = (request, response) => {
 
 const getItemsHandler = response => {
 
-    getitems((err, res) => {
+    getData.getData((err, res) => {
       if (err) {
         console.log(err)
         response.end('Sorry error found');
       }
       response.writeHead(200, { 'Content-Type': 'application/json' });
       response.end(res)
-  
     })
-  
-  
   };
+
+  const getDescriptionsHandler = response => {
+
+    getData.getAllDescriptions((err, res) => {
+      if (err) {
+        console.log(err)
+        response.end('Sorry error found');
+      }
+      response.writeHead(200, { 'Content-Type': 'application/json' });
+      response.end(res)
+    })
+  };
+  
+
+  
 
 module.exports = {
     indexHandler: indexHandler,
     publicHandler: publicHandler,
-    getItemsHandler:getItemsHandler
+    getItemsHandler:getItemsHandler,
+    getDescriptionsHandler:getDescriptionsHandler
 }

@@ -7,10 +7,12 @@ function router(request, response) {
     else if (request.url === '/items') {
         handlers.getItemsHandler(response); {
         }
-        //     else if (request.url.includes('api/giphyhandler')) {
-        //         giphyHandler.giphyModule(request, response)
-        //     }
-    } else {
+
+    } else if (request.url === '/alldescriptions') {
+        handlers.getDescriptionsHandler(response); {
+        }
+    }
+    else {
         handlers.publicHandler(request, response);
     }
 }

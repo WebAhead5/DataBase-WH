@@ -1,0 +1,20 @@
+option {
+    cursor: pointer;
+    padding :5px;
+    background-color: white;
+  }
+  option:hover {
+
+    background-color: grey;
+  }
+
+div#autocompleteresults {
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+
+div.productfield {
+    display: inline-block;
+    position: relative;
+}
