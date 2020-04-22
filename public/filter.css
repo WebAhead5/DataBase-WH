@@ -1,0 +1,4 @@
+input#hidefilter {
+    cursor: pointer;
+    display: block;
+}

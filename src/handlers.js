@@ -4,6 +4,7 @@ const qs = require('querystring');
 
 const getitems = require('./queries/getData');
 
+
 var extensionTypesObj = {
     html: 'text/html',
     css: 'text/css',
@@ -42,21 +43,34 @@ const publicHandler = (request, response) => {
 
 const getItemsHandler = response => {
 
-    getitems((err, res) => {
+    getitems.getData((err, res) => {
       if (err) {
         console.log(err)
         response.end('Sorry error found');
       }
       response.writeHead(200, { 'Content-Type': 'application/json' });
       response.end(res)
-  
     })
-  
-  
   };
+
+  const getDescriptionsHandler = response => {
+
+    getitems.getAllDescriptions((err, res) => {
+      if (err) {
+        console.log(err)
+        response.end('Sorry error found');
+      }
+      response.writeHead(200, { 'Content-Type': 'application/json' });
+      response.end(res)
+    })
+  };
+  
+
+  
 
 module.exports = {
     indexHandler: indexHandler,
     publicHandler: publicHandler,
-    getItemsHandler:getItemsHandler
+    getItemsHandler:getItemsHandler,
+    getDescriptionsHandler:getDescriptionsHandler
 }

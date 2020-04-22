@@ -10,4 +10,19 @@ const getData = cb => {
   });
 };
 
-module.exports = getData;
+const getAllDescriptions = cb => {
+  databaseConnection.query('SELECT * FROM product', (err, res) => {
+    if (err) {
+      cb(err);
+    } else {
+      cb(null, JSON.stringify(res.rows));
+      console.log(JSON.stringify(res.rows))
+    }
+  });
+};
+
+
+module.exports = {
+  getData:getData,
+  getAllDescriptions: getAllDescriptions
+}
