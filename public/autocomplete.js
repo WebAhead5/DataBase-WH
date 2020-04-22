@@ -43,10 +43,8 @@ function setDataList(inputtedtext) {
         optionNode.text = word;
         list.appendChild(optionNode)
         optionNode.addEventListener('click', () => {
-
             productField.value = optionNode.text;
-
-
+            clearSearchList()
         })
     })
 }
@@ -55,4 +53,11 @@ productField.addEventListener('input', () => {
     console.log("eventlistenerfunction firing!")
     clearSearchList();
     setDataList(productField.value)
+})
+
+document.body.addEventListener('click', (event)=>{
+    console.dir(document.activeElement)
+    if(document.activeElement === productField) {
+        setDataList(productField.value);
+    }else clearSearchList();
 })
