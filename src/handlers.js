@@ -106,8 +106,9 @@ const insertItemsHandler = (request, response) => {
             console.log(err)
             response.end('Sorry error found');
         }
-        response.writeHead(302, { 'Location': '/' });
-        response.end()
+        response.writeHead(200, { 'Content-Type': 'application/json' });
+        // response.writeHead(302, { 'Location': '/' });
+        response.end(res)
 
 
 

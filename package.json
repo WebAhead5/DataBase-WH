@@ -1,5 +1,5 @@
 {
-  "name": "sql-project",
+  "name": "database-wh",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,10 +7,10 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "node tests.js | tap-spec",
+    "test": "node ./tests/tests.js | tap-spec",
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "testdb": "NODE_ENV=test node tests/db_tests.js"
+    "testdb":"NODE_ENV=test node ./tests/db-test.js"
   },
   "author": "",
   "license": "ISC",
@@ -18,7 +18,8 @@
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.3",
     "nyc": "^15.0.1",
-    "pg": "^8.0.2",
+    "pg": "^8.0.3",
+    "supertest": "^4.0.2",
     "tap-spec": "^5.0.0",
     "tape": "^4.13.2"
   }

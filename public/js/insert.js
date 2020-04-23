@@ -23,7 +23,10 @@ document.getElementById('insert').addEventListener('click', () => {
 })
 
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> e915baed6e580edc94cbe2ffde05d76ce2b43ca8
 function updatePrice() {
     var xhr = new XMLHttpRequest();
     var url = `/updateprice?description=${productField.value}`;

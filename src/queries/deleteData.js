@@ -5,7 +5,8 @@ const deleteData = (id, cb) => {
         if (err) {
             cb(err);
         } else {
-            cb(null, JSON.stringify(res.rows));
+            cb(null, JSON.stringify(res));
+            
         }
     });
 };

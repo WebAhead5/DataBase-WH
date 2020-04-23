@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const dbConnection = require('./db_connection.js');
+const dbConnection = require('./db_connection');
 
 const sqlPath = path.join(__dirname, 'db_build.sql');
 const sql = fs.readFileSync(sqlPath).toString();
@@ -12,6 +12,6 @@ const sql = fs.readFileSync(sqlPath).toString();
 //   console.log('Users table created with result: ', res);
 // });
 
-const runDbBuild = cb => dbConnection.query(sql, cb)
+const runDbBuild = cb => dbConnection.query(sql, cb);
 
 module.exports = runDbBuild
