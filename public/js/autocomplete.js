@@ -43,6 +43,7 @@ function setDataList(inputtedtext) {
         list.appendChild(optionNode)
         optionNode.addEventListener('click', () => {
             productField.value = optionNode.text;
+            updatePrice();
             clearSearchList()
         })
     })
@@ -55,7 +56,7 @@ productField.addEventListener('input', () => {
 })
 
 document.body.addEventListener('click', (event) => {
-    if (document.activeElement === productField) {
-        setDataList(productField.value);
+    if (document.activeElement === productField) { //if input is selected
+        setDataList(productField.value);       // update suggestions with description search input
     } else clearSearchList();
 })

@@ -168,11 +168,13 @@ const sortItemsbypriceHandler = response => {
     })
 };
 
-const deleteHandler = response => {
+const deleteHandler = (request, response) => {
+    const queryfiltered = url.parse(request.url).query;
+    const parsedfiltered = qs.parse(queryfiltered);
 
-    console.log('deleteHandler says: firing')
+    console.log('deleteHandler says: firing', parsedfiltered.itemid)
 
-    deleteData((err, res) => {
+    deleteData(parsedfiltered.itemid, (err, res) => {
         if (err) {
             console.log(err)
             response.end('Sorry error found');
