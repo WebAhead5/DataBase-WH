@@ -47,7 +47,7 @@ body {
 }
 
 body {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 h1 {
@@ -58,6 +58,9 @@ h1 {
     box-sizing: border-box;
 }
 
+.row{
+    width: 90%;
+}
 
 #controls {
     display: inline;
@@ -72,11 +75,25 @@ h1 {
     position: relative;
     background-color: white;
     border-top: 1px solid black;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 tbody .glyphicon {
     padding: 0 8px 0 8px;
     font-size: 28px;
+}
+
+#deletecell {
+  width: 10%;
+}
+
+#deleteimage {
+    height:20px;
+    width:20px;
+    cursor: pointer;
+    justify-content: center;
+    text-align: center;
 }
 
 @media (min-width: 768px) {

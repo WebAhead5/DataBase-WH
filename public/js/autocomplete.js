@@ -55,7 +55,6 @@ productField.addEventListener('input', () => {
 })
 
 document.body.addEventListener('click', (event) => {
-    console.dir(document.activeElement)
     if (document.activeElement === productField) {
         setDataList(productField.value);
     } else clearSearchList();
