@@ -16,15 +16,11 @@ function postproduct() {
 
 }
 
-
 document.getElementById('insert').addEventListener('click', () => {
 
     postproduct()
 
 })
-
-
-
 
 
 function updatePrice() {
