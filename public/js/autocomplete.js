@@ -25,7 +25,6 @@ function clearSearchList() {
 }
 
 function setDataList(inputtedtext) {
-    console.log("setDatalist firing!", inputtedtext)
     const list = document.getElementById('autocompleteresults')
     if (productField.value == '') {
         return
@@ -50,7 +49,6 @@ function setDataList(inputtedtext) {
 }
 
 productField.addEventListener('input', () => {
-    console.log("eventlistenerfunction firing!")
     clearSearchList();
     setDataList(productField.value)
 })

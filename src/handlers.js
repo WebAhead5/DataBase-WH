@@ -98,9 +98,10 @@ const insertItemsHandler = (request, response) => {
 
     const name = parsedobject.description;
     const quantity = parsedobject.quantity;
+    const price = parsedobject.price;
 
 
-    postData(name, quantity, (err, res) => {
+    postData(name, quantity, price, (err, res) => {
         if (err) {
             console.log(err)
             response.end('Sorry error found');
@@ -195,8 +196,8 @@ module.exports = {
     insertItemsHandler: insertItemsHandler,
     filterItemsHandler: filterItemsHandler,
     getPriceHandler: getPriceHandler,
-    sortItemsbypriceHandler:sortItemsbypriceHandler,
-    sortItemsbyquantityHandler:sortItemsbyquantityHandler,
+    sortItemsbypriceHandler: sortItemsbypriceHandler,
+    sortItemsbyquantityHandler: sortItemsbyquantityHandler,
     deleteHandler: deleteHandler
 
 }

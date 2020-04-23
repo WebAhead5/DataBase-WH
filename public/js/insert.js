@@ -1,9 +1,10 @@
 var productinput = document.getElementById('productField');
 var productquantity = document.getElementById('quantityField');
+var productprice = document.getElementById('PriceField')
 
 function postproduct() {
     var xhr = new XMLHttpRequest();
-    var url = `/insertitems?description=${productinput.value}&quantity=${productquantity.value}`;
+    var url = `/insertitems?description=${productinput.value}&quantity=${productquantity.value}&price=${productprice.value}`;
     xhr.open('GET', url);
     xhr.send();
 
@@ -13,17 +14,13 @@ function postproduct() {
             request('/items', updateDom);
         }
     };
-
 }
-
 
 document.getElementById('insert').addEventListener('click', () => {
 
     postproduct()
 
 })
-
-
 
 
 
@@ -37,16 +34,11 @@ function updatePrice() {
 
         if (xhr.readyState === 4 && xhr.status === 200) {
             var price = JSON.parse(xhr.response)
-            console.log(price)
+            if(price.length > 0)
             document.getElementById("PriceField").value = price[0].price;
         }
     };
-
 }
-
-
-
-
 
 document.getElementById('productField').addEventListener('input', () => {
 
