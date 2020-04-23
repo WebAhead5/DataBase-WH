@@ -37,7 +37,7 @@ function updatePrice() {
             if(price.length > 0)
             document.getElementById("PriceField").value = price[0].price;
         }
-    };
+    };4
 }
 
 document.getElementById('productField').addEventListener('input', () => {
