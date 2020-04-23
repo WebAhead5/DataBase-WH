@@ -14,18 +14,15 @@ const getData = cb => {
 
 
 
-
 const getPrice = (name, cb) => {
     databaseConnection.query(`SELECT price FROM prices WHERE name = '${name}'`, (err, res) => {
         if (err) {
             cb(err);
         } else {
             cb(null, JSON.stringify(res.rows));
-            // console.log("getPrice is working: ",JSON.stringify(res.rows))
         }
     });
 }
-
 
 
 const getAllDescriptions = cb => {

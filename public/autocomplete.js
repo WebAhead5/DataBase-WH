@@ -9,7 +9,6 @@ let arrayofdescrips = []
 
 xhr.onreadystatechange = function onReadyStateChange() {
     if (xhr.readyState === 4 && xhr.status === 200) {
-        // console.log("xhr.responseText: ", JSON.parse(xhr.responseText));
         JSON.parse(xhr.responseText).forEach(x => {
             arrayofdescrips.push(x.name)
         })
@@ -55,9 +54,9 @@ productField.addEventListener('input', () => {
     setDataList(productField.value)
 })
 
-document.body.addEventListener('click', (event)=>{
+document.body.addEventListener('click', (event) => {
     console.dir(document.activeElement)
-    if(document.activeElement === productField) {
+    if (document.activeElement === productField) {
         setDataList(productField.value);
-    }else clearSearchList();
+    } else clearSearchList();
 })

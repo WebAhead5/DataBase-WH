@@ -39,8 +39,6 @@ function updatePrice() {
             var price = JSON.parse(xhr.response)
             console.log(price)
             document.getElementById("PriceField").value = price[0].price;
-
-            //request('/items', updateDomPrice);
         }
     };
 
@@ -52,7 +50,6 @@ function updatePrice() {
 
 document.getElementById('productField').addEventListener('input', () => {
 
-        updatePrice()
+    updatePrice()
 
-    })
-    //HELLO HADI!
+})

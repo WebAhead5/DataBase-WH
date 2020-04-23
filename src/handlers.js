@@ -6,6 +6,7 @@ const url = require('url');
 const getData = require('./queries/getData');
 const postData = require('./queries/postData');
 const filterData = require('./queries/filterData');
+const sortData = require('./queries/sortData');
 
 
 var extensionTypesObj = {
@@ -17,9 +18,9 @@ var extensionTypesObj = {
     gif: 'image/gif'
 }
 
-const indexHandler = function(request, response) {
+const indexHandler = function (request, response) {
     response.writeHead(200, { "Content-Type": "text/html" })
-    fs.readFile(__dirname + '/../public/index.html', function(error, file) {
+    fs.readFile(__dirname + '/../public/index.html', function (error, file) {
         if (error) {
             console.log("indexHandler error: ", error);
             return;
@@ -111,7 +112,7 @@ const insertItemsHandler = (request, response) => {
 }
 
 
-const filterItemsHandler = response => {
+const filterItemsHandler = (request, response) => {
 
     const queryfiltered = url.parse(request.url).query;
 
@@ -120,6 +121,7 @@ const filterItemsHandler = response => {
     const filtredname = parsedfiltered.product;
     const filtredquantity = parsedfiltered.quantity;
     const filtredprice = parsedfiltered.price;
+
 
     filterData(filtredname, filtredquantity, filtredprice, (err, res) => {
         if (err) {
@@ -133,6 +135,41 @@ const filterItemsHandler = response => {
 
 
 
+const sortItemsbyquantityHandler = response => {
+
+
+    console.log('you reached sorting by quantity')
+
+
+    sortData.sortbyquantity((err, res) => {
+        if (err) {
+            console.log(err)
+            response.end('Sorry error found');
+        }
+        response.writeHead(200, { 'Content-Type': 'application/json' });
+        response.end(res)
+    })
+};
+
+const sortItemsbypriceHandler = response => {
+
+    console.log('you reached sorting by price')
+
+    sortData.sortbyprice((err, res) => {
+        if (err) {
+            console.log(err)
+            response.end('Sorry error found');
+        }
+        response.writeHead(200, { 'Content-Type': 'application/json' });
+        response.end(res)
+    })
+};
+
+
+
+
+
+
 module.exports = {
     indexHandler: indexHandler,
     publicHandler: publicHandler,
@@ -140,6 +177,8 @@ module.exports = {
     getDescriptionsHandler: getDescriptionsHandler,
     insertItemsHandler: insertItemsHandler,
     filterItemsHandler: filterItemsHandler,
-    getPriceHandler: getPriceHandler
+    getPriceHandler: getPriceHandler,
+    sortItemsbypriceHandler:sortItemsbypriceHandler,
+    sortItemsbyquantityHandler:sortItemsbyquantityHandler
 
 }
