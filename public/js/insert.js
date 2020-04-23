@@ -22,11 +22,6 @@ document.getElementById('insert').addEventListener('click', () => {
 
 })
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> e915baed6e580edc94cbe2ffde05d76ce2b43ca8
 function updatePrice() {
     var xhr = new XMLHttpRequest();
     var url = `/updateprice?description=${productField.value}`;
@@ -40,7 +35,7 @@ function updatePrice() {
             if(price.length > 0)
             document.getElementById("PriceField").value = price[0].price;
         }
-    };4
+    };
 }
 
 document.getElementById('productField').addEventListener('input', () => {
