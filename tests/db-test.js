@@ -39,11 +39,10 @@ tape("Checking getting products from the database", (t) => {
 });
 
 
-
 tape("Checking posting products to the database ", (t) => {
     runDbBuild(function (err, res) {
         let actualData;
-        postData('Milk', '3', (err, res) => {
+        postData('Milk', 4, 5, (err, res) => {
             if (err) throw err;
             actualData = res;
             console.log(actualData);
