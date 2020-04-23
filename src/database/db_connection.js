@@ -11,6 +11,10 @@ if (process.env.NODE_ENV === "test") {
 }
 if (!DB_URL) throw new Error("Enviroment variable DB_URL must be set");
 
+
+
+
+
 const params = url.parse(DB_URL);
 const [username, password] = params.auth.split(':');
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
@@ -26,5 +30,5 @@ const options = {
 
 options.ssl = options.host !== 'localhost';
 
-module.exports = new Pool(options);
+module.exports =  new Pool(options);
 
