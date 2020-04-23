@@ -3,12 +3,26 @@ function request(url, cb) {
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
       cb(null, xhr.responseText);
-      console.log(xhr.response);
+      //console.log(xhr.response);
     } else {
       cb('error' + xhr.responseType);
     }
   };
   xhr.open('GET', url, true);
+  xhr.send();
+}
+
+function request1(type,url, cb) {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      //cb(null, xhr.responseText);
+      console.log(xhr.response);
+    } else {
+      cb('error' + xhr.responseType);
+    }
+  };
+  xhr.open(type, url, true);
   xhr.send();
 }
 
@@ -38,6 +52,15 @@ function updateDom(err, data) {
       var price = document.createElement('td');
       price.innerHTML = item.price;
       row.appendChild(price);
+
+      var deletecell = document.createElement('td');
+      deletecell.setAttribute('id', 'deletecell')
+      deletecell.innerHTML = '<img id="deleteimage" src="../public/img/criss-cross.png">'
+      deletecell.addEventListener('click', ()=>{
+        console.log("event listener firing app.js")
+        request1('DELETE',`/deleteitem?itemid=${item.id}`, updateDom)
+      })
+      row.appendChild(deletecell);
       table.appendChild(row);
     });
   }

@@ -84,6 +84,18 @@ tbody .glyphicon {
     font-size: 28px;
 }
 
+#deletecell {
+  width: 10%;
+}
+
+#deleteimage {
+    height:20px;
+    width:20px;
+    cursor: pointer;
+    justify-content: center;
+    text-align: center;
+}
+
 @media (min-width: 768px) {
     #info {
         font-size: 20px;

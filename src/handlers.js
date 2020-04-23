@@ -7,6 +7,7 @@ const getData = require('./queries/getData');
 const postData = require('./queries/postData');
 const filterData = require('./queries/filterData');
 const sortData = require('./queries/sortData');
+const deleteData = require('./queries/deleteData');
 
 
 var extensionTypesObj = {
@@ -15,7 +16,8 @@ var extensionTypesObj = {
     js: 'application/javascript',
     ico: 'image/x-icon',
     txt: 'text/plain',
-    gif: 'image/gif'
+    gif: 'image/gif',
+    png: 'img/png'
 }
 
 const indexHandler = function (request, response) {
@@ -165,6 +167,19 @@ const sortItemsbypriceHandler = response => {
     })
 };
 
+const deleteHandler = response => {
+
+    console.log('deleteHandler says: firing')
+
+    deleteData((err, res) => {
+        if (err) {
+            console.log(err)
+            response.end('Sorry error found');
+        }
+        response.writeHead(200, { 'Content-Type': 'application/json' });
+        response.end(res)
+    })
+};
 
 
 
@@ -179,6 +194,7 @@ module.exports = {
     filterItemsHandler: filterItemsHandler,
     getPriceHandler: getPriceHandler,
     sortItemsbypriceHandler:sortItemsbypriceHandler,
-    sortItemsbyquantityHandler:sortItemsbyquantityHandler
+    sortItemsbyquantityHandler:sortItemsbyquantityHandler,
+    deleteHandler: deleteHandler
 
 }

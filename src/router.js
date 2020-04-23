@@ -27,10 +27,9 @@ function router(request, response) {
     } else if (request.url.includes('/updateprice')) {
         handlers.getPriceHandler(request, response);
 
-
-
-
-
+    } else if (request.url.includes('/deleteitem')) {
+        console.log("router request.url", request.url)
+        handlers.deleteHandler(request, response);
     } else {
         handlers.publicHandler(request, response);
     }
