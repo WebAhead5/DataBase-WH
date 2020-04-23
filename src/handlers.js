@@ -108,7 +108,7 @@ const insertItemsHandler = (request, response) => {
         }
         response.writeHead(200, { 'Content-Type': 'application/json' });
         // response.writeHead(302, { 'Location': '/' });
-        response.end(res)
+        response.end(JSON.stringify(res))
 
 
 
